@@ -1,0 +1,44 @@
+    /* chitri_frontend/src/styles/index.css */
+    @import 'tailwindcss/base';
+    @import 'tailwindcss/components';
+    @import 'tailwindcss/utilities';
+
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+    /* Custom Scrollbar for a more artistic feel */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #2a2a2a;
+      /* Deep black/dark gray */
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #5C4E4E;
+      /* Deep Taupe */
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #988686;
+      /* Taupe */
+    }
+
+    /* Basic body styling */
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      /* Default font */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #000000;
+      /* Ensure body background is black */
+      color: #D1D0D0;
+      /* Default text color */
+    }

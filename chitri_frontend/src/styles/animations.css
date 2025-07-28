@@ -1,0 +1,30 @@
+/* chitri_frontend/src/styles/animations.css */
+/* This file is for custom keyframes or very specific global animations not easily done with Tailwind's utility classes. */
+
+/* Example GSAP related animation classes that could be toggled */
+.gsap-fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.gsap-slide-in-left {
+  transform: translateX(-100%);
+}
+
+.gsap-scale-up {
+  transform: scale(0.8);
+}
+
+/* Define custom keyframes if not using Tailwind's */
+/* @keyframes customPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-custom-pulse {
+  animation: customPulse 1s ease-in-out infinite;
+} */
+
+/* Note: Most GSAP animations will directly manipulate element styles via JavaScript,
+   so extensive CSS animation definitions here might not always be necessary.
+   This file is more for base styles or subtle effects that complement GSAP. */
