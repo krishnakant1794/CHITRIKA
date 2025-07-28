@@ -13,6 +13,7 @@
             'gray-light': '#D1D0D0',
             'taupe': '#988686',
             'deep-taupe': '#5C4E4E',
+            'light-green': '#fcf802',
           },
           fontFamily: {
             serif: ['"Playfair Display"', 'Georgia', 'serif'],

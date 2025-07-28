@@ -32,9 +32,11 @@ const Navbar = () => {
         gsap.to(mobileMenuRef.current, { x: '0%', duration: 0.3, ease: 'power2.out' });
         document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
       } else {
-        gsap.to(mobileMenuRef.current, { x: '-100%', duration: 0.3, ease: 'power2.in', onComplete: () => {
-          document.body.style.overflow = ''; // Restore scrolling when menu is closed
-        }});
+        gsap.to(mobileMenuRef.current, {
+          x: '-100%', duration: 0.3, ease: 'power2.in', onComplete: () => {
+            document.body.style.overflow = ''; // Restore scrolling when menu is closed
+          }
+        });
       }
     }
   }, [isMobileMenuOpen]);
@@ -49,8 +51,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <Paintbrush className="text-taupe h-8 w-8" />
-          <span className="text-gray-light text-2xl font-bold font-serif tracking-wider">CHITRIKA</span>
+          <Paintbrush className="text-white h-8 w-8" />
+          <span className="text-white text-2xl font-bold font-serif tracking-wider">CHITRIKA</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -71,7 +73,7 @@ const Navbar = () => {
           {currentUser ? (
             <button
               onClick={handleLogout}
-              className="flex items-center text-gray-light hover:text-taupe transition-colors duration-200 text-lg font-medium"
+              className="flex items-center text-gray-light hover:text-white transition-colors duration-200 text-lg font-medium"
             >
               <LogOut className="h-5 w-5 mr-1" /> Logout
             </button>
@@ -82,7 +84,7 @@ const Navbar = () => {
 
         {/* Mobile Hamburger Menu */}
         <div className="md:hidden flex items-center">
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-light focus:outline-none">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-light-green  bg-black focus:outline-none">
             {isMobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
           </button>
         </div>
@@ -91,45 +93,78 @@ const Navbar = () => {
       {/* Mobile Slide-out Menu */}
       <div
         ref={mobileMenuRef}
-        className={`fixed top-0 left-0 w-64 h-full bg-deep-taupe shadow-xl transform ${
-          isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } transition-transform duration-300 ease-in-out md:hidden z-40`}
+        className={`fixed top-0 left-0 w-64 h-full bg-black shadow-xl transform ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          } transition-transform duration-300 ease-in-out md:hidden z-40`}
       >
-        <div className="p-6 pt-20 space-y-4"> {/* pt-20 to clear fixed navbar */}
-          <MobileNavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
+        <div className="p-6 pt-20 space-y-4">
+          <MobileNavLink
+            to="/"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-light-green text-2xl flex items-center"
+          >
             <Home className="h-5 w-5 mr-2" /> Home
           </MobileNavLink>
-          <MobileNavLink onClick={() => { handleCustomizeClick(); setIsMobileMenuOpen(false); }}>
+
+          <MobileNavLink
+            onClick={() => { handleCustomizeClick(); setIsMobileMenuOpen(false); }}
+            className="text-light-green text-2xl flex items-center"
+          >
             <Paintbrush className="h-5 w-5 mr-2" /> Customize
           </MobileNavLink>
-          <MobileNavLink to="/profile" onClick={() => setIsMobileMenuOpen(false)}>
+
+          <MobileNavLink
+            to="/profile"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-light-green text-2xl flex items-center"
+          >
             <User className="h-5 w-5 mr-2" /> Profile
           </MobileNavLink>
+
           {userRole === 'admin' && (
-            <MobileNavLink to="/admin" onClick={() => setIsMobileMenuOpen(false)}>
+            <MobileNavLink
+              to="/admin"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-light-green text-2xl flex items-center"
+            >
               <ShieldCheck className="h-5 w-5 mr-2" /> Admin
             </MobileNavLink>
           )}
-          <MobileNavLink to="/orders" onClick={() => setIsMobileMenuOpen(false)}>
+
+          <MobileNavLink
+            to="/orders"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-light-green text-2xl flex items-center"
+          >
             <List className="h-5 w-5 mr-2" /> Orders
           </MobileNavLink>
-          <MobileNavLink to="/cart" onClick={() => setIsMobileMenuOpen(false)}>
+
+          <MobileNavLink
+            to="/cart"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-light-green text-2xl flex items-center"
+          >
             <ShoppingCart className="h-5 w-5 mr-2" /> My Cart ({totalCartItems})
           </MobileNavLink>
+
           {currentUser ? (
             <button
               onClick={() => { handleLogout(); setIsMobileMenuOpen(false); }}
-              className="flex items-center w-full text-left py-2 px-3 rounded-md text-gray-light hover:bg-taupe hover:text-black transition-colors duration-200 text-lg font-medium"
+              className="flex items-center w-full text-left py-2 px-3 rounded-md text-light-green hover:bg-taupe hover:text-black transition-colors duration-200 text-2xl font-medium"
             >
               <LogOut className="h-5 w-5 mr-2" /> Logout
             </button>
           ) : (
-            <MobileNavLink to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+            <MobileNavLink
+              to="/login"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-light-green text-2xl flex items-center"
+            >
               <User className="h-5 w-5 mr-2" /> Login
             </MobileNavLink>
           )}
         </div>
       </div>
+
     </nav>
   );
 };
@@ -138,17 +173,17 @@ const NavLink = ({ to, children, onClick }) => (
   <Link
     to={to}
     onClick={onClick}
-    className="text-gray-light hover:text-taupe transition-colors duration-200 text-lg font-medium"
+    className="text-gray-light hover:text-white transition-colors duration-200 text-lg font-medium"
   >
     {children}
   </Link>
 );
 
-const MobileNavLink = ({ to, children, onClick }) => (
+const MobileNavLink = ({ to, children, onClick, className = '' }) => (
   <Link
     to={to}
     onClick={onClick}
-    className="flex items-center py-2 px-3 rounded-md text-gray-light hover:bg-taupe hover:text-black transition-colors duration-200 text-lg font-medium"
+    className={`flex items-center py-2 px-3 rounded-md hover:bg-taupe hover:text-black transition-colors duration-200 text-2xl font-medium ${className}`}
   >
     {children}
   </Link>

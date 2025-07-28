@@ -148,7 +148,7 @@ const HomePage = () => {
         <div className="container mx-auto p-4 flex flex-col md:flex-row mt-20 flex-grow">
           {/* Left Sidebar - Categories */}
           <aside className="w-full md:w-1/4 p-4 md:sticky md:top-20 md:h-[calc(100vh-100px)] overflow-y-auto bg-deep-taupe rounded-lg shadow-lg mb-6 md:mb-0">
-            <h3 className="text-xl font-bold text-taupe mb-4">Categories</h3>
+            <h3 className="text-xl font-bold text-white mb-4">Categories</h3>
             <ul>
               {CATEGORIES.map((category) => (
                 <li key={category} className="mb-2">
