@@ -3,6 +3,8 @@
 Chitrika is a **full-stack freelancing e-commerce project** I built for my client, who is a painter/artist.  
 The platform allows her to showcase and sell her paintings, including **modern art, resin art, cloth art, and canvas art**.  
 
+**BACKEND LINK :- https://chitrika.onrender.com**
+
 ---
 
 ## ✨ Features
